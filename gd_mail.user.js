@@ -1,48 +1,62 @@
 // ==UserScript==
-// @name        gd_mail
-// @namespace   gd_mail
+// @name        goddam-rules
+// @namespace   goddam-rules
 // @include     *//email11.secureserver.net*
 // @version     1
 // @require       http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // ==/UserScript==
 
+/*
+ * Author: cclites@sweeps-soft.com, Oct. 2014
+ * Copyright 2014
+ *
+ * Hacking websites with Greasemonkey,
+ * and,
+ * Greasemonkey as an Effective Tool for Front-End Development
+ * 
+ * Part I: Adding functionality to GoDaddy's Webmail page.
+ */
+
+/*
+ * For explanation of noConflict, see:
+ * http://www.greasespot.net/2012/08/greasemonkey-10-jquery-broken-with.html
+*/
 this.$ = this.jQuery = jQuery.noConflict(true);
 
 window.onload = function() {
-	if (window.jQuery) {
-		// jQuery is loaded
+	if (window.jQuery) { // jQuery is loaded
+		
 		console.log("jQuery is loaded");
-		//call new function to process
-        
+              
+        /*TODO: Add UI elements to allow adding and removing keys*/
+        // Hard coded function calls to manually add elements to local storage.
         //gdm.clearBadKeys();
 		//gdm.addBadKey("Twitter");
 	    //gdm.addBadKey("Fitocracy");
 		//gdm.addBadKey("Today on Twitter");
         
         console.log("Getting bad keys from action.getBadKeys");
+        //Slight tiemout to allow the page to load.
 		setTimeout(action.getBadKeys, 2000);
 		console.log("Returned from gdm.getBadKeys");
 
-	} else {
-		// jQuery is not loaded
+	} else {  //jQuery is not loaded. So sad.
 		console.log("jQuery is not loaded.");
 	}
 }
 
+//getters-setters
 var gdm = {
 	
-	getBadKeys : function() {
-		console.log("gdm.getBadKeys called");
-	},
-
 	cleanup : function() {
 	    location.reload(true);
 	},
 	
 	addBadKey: function(key){
 		
-		//If populated, this would be a string. If it is an object, it is empty.
-		//Create a new array
+		//this.getBadKeys() returns an object if there is no key value stored
+		//in local storage. Otherwise it will return a stringified json object 
+		//that must be parsed.
 		if (typeof this.getBadKeys() === "string"){
 			console.log("Adding key to existing array");
 			var tempArray = JSON.parse(this.getBadKeys());
@@ -52,6 +66,8 @@ var gdm = {
 		}else{
 			//console.log("is object");
             console.log("Creating new array. Adding key " + key);
+            
+            //This doesn't work. Weird. --> var tempArray = new Array(key);
 			var tempArray = new Array();
 			tempArray.push(key);
 			console.log("temp array is " + tempArray);
@@ -61,7 +77,6 @@ var gdm = {
 	},
 	
 	getBadKeys: function(){
-		
 		console.log("localStorage.BadKeys: " + window.localStorage.getItem('badKeys'));
 		return window.localStorage.getItem('badKeys');
 	},
@@ -72,6 +87,7 @@ var gdm = {
 	},
 	
 	removeBadKey: function(key){
+		console.log("Removing badKey " + key);
 		var tempArray = JSON.stringify(gdm.getBadKeys());
 		var index = tempArray.indexOf(key);
 		
