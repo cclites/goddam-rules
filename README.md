@@ -221,8 +221,5 @@ I am a freelance front-end engineer with extensive full-stack development experi
 <br>
 <a href="http://ushouldknow.us/"> UShouldKnow.US is a Twitter Bot built on data from GovTrack.us </a> 
 <br>
-<a href="https://www.modobot.com/Portfolio/index.html">Portfolio</a>
-<br>
-<a href="www.linkedin.com/pub/chad-clites/13/243/9a2">LinkedIn</a>
 <br><br>
 </p>
