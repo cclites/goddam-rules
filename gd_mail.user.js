@@ -52,6 +52,7 @@ var gdm = {
 	    location.reload(true);
 	},
 	
+	//TODO: make sure no duplicate keys
 	addBadKey: function(key){
 		
 		//this.getBadKeys() returns an object if there is no key value stored
@@ -134,3 +135,66 @@ var action = {
 		}
 	}
 };
+
+var builder = {
+	
+	buildDeletePanel: function{
+		$("body").append( html.buildOuterContainer() );
+	}
+	
+};
+
+var html = {
+	
+	//append this to the body
+	buildOuterContainer: function(){
+		return '<div class="gdm-outer"><div class="gdm-tabs"></div></div>';
+	},
+
+    buildTab: function(label){
+    	return '<div class="gdm-tab">' +  label + '</div>';
+    },
+    
+    buildControls: function(){
+    	return '<div class="gdm-controls"><button type="button" class="gdm-refresh"></button><span>Refresh</span></div>';
+    },
+    
+    buildRulePanel: function(label, id){
+    	return '<div class="gdm-inner"><h5>' + label + '</h5><div class="gdm-rulePanel" id="' + id + '"></div></div>';
+    },
+    
+    buildRule: function(label){
+    	return '<div class="gdm-rule" data-bind="' + label + '"><span>' + label + '<span><button type="button" class="gdm-deleterule"></button></div></div>';
+    }
+    
+    buildInput: function(type){
+    	return '<div class="gdm-inputRule"><input type="text"  /><button type="button" class="gdm-addrule" data-bind="' + type + '"></button></div>';
+    }
+	
+};
+
+var css = {
+	
+	//style outer container
+	style.addCss(".gdm-outer{position: absolute; right: 0, top: 0, height: 300px; width: 100px; background: #fff}");
+}
+
+var events = {
+	//add rule
+	//refesh
+	//delete rule
+	//show slide
+}
+
+var style = {
+	
+	//From: http://www.techradar.com/us/news/internet/the-beginner-s-guide-to-greasemonkey-scripting-598247/2
+	addCss: function(css){
+		var head = document.
+		getElementsByTagName('head')[0];
+		return unless head; var newCss = document.createElement('style');
+		newCss.type = "text/css";
+		newCss.innerHTML = cssString;
+		head.appendChild(newCss); 
+	}
+}
