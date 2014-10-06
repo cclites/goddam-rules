@@ -21,7 +21,14 @@ Ui Object - General UI manipulation functions.
 <h5>Program Flow</h5>
 <p>
 The basic program flow is like so:
-<dl>
-
-</dl>
+<ul>
+<li>On page load, an initialization function is called to process the rulesets.</li>
+<li>The Builder object is then called on to retrieve and append html elements to the page.</li>
+<li>Some listeners are initialized so that the basic form will open.</li>
+<li>Styles are applied</li>
+</ul>
+</p>
+<h5>Conclusion</h5>
+<p>
+There is not really much to talk about for this aspect. Although bulding the form is pretty simple, it ends up being a lot of code to make everything work in an encapsulated, conflict-free manner.
 </p>

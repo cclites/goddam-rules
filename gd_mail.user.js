@@ -30,12 +30,12 @@ window.onload = function() {
 		console.log("gdm starting");
         
         //Slight tiemout to allow the page to load, then process keys to delete.
-		setTimeout(gdm.init, 2000);
+		setTimeout(gdm.initRules, 2000);
 		
 		//build the container skeleton
 		builder.initPanel();
 		
-		//add listener to open and close container
+		//add listener to show and hide container
 		listen.toggleContainer();
 		listen.refreshClick();
 		
@@ -44,14 +44,14 @@ window.onload = function() {
 
 	} else { 
 		//This message will display if jQuery is already loaded.
-		console.log("jQuery is not loaded.");
+		console.log("JQuery not loaded/re-loaded.");
 	}
 }
 
 //getters-setters
 var gdm = {
 	
-	init: function(){
+	initRules: function(){
 		action.processDeleteRules();
 	},
 	
