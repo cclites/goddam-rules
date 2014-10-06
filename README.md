@@ -3,23 +3,22 @@ goddam-rules
 
 <h5>Introduction</h5>
 <p>
-On a recent contract, I was in a position where I did not manage my own code. As part of my workflow, I would work on files that were on the development server of another. As this was a reskin for a distributed web application, it required that files be manually copied across servers in order to test and develop for a uniform appearance. 
+On a recent contract, I found myself in a position where I was not in control of my own code. As part development and testing, I would work on files that were physically located on the development server I did not manage. As this was a reskin for a distributed web application, it required that files be manually copied across servers in order to test and develop for a uniform appearance. As a result there was sometimes confusion as to what files were the master copy, resulting in code being overwritten.
 <br><br>
-Also, access to hardware can be unpredictable, and if one works outside of typical office hours, there is usually little recourse other than waiting for someone to arrive on-site. As a means of compensating for unpredictable hardware availability, and to regain control of my source code, I turned to Greasemonkey in order to inject my own code.
+Remote access is always somewhat of an unknown. If hardware goes down, there is usually little recourse other than waiting for someone to arrive on-site. What I needed was a way to ensure that a master copy of my development code was always on my local system, and that I had access to a reliable system. Fortunately the QA servers were always available, so my solution was to leverage Greasemonkey.
 <br><br>
 <a href="http://www.greasespot.net/">Greasemonkey</a> is <em>a Firefox extension that allows you to customize the way webpages look and function.</em> In a nutshell, it allows someone to inject JavaScript and CSS into active web pages and modify the behavior and the look. Also, this is a Firefox specific plugin (in case you didn’t get it from the description), however <a href="https://code.google.com/p/tampermonkey/">tampermonkey</a> is available for Chrome, and <a href="http://www.rigelgroupllc.com/blog/2013/01/08/greasemonkey-for-ie/"> a method here </a>for injecting scripts into IE. There are also multiple references available online for getting started with Greasemonkey. 
 <br><br>
 </p>
 
-
 <h5>Purpose</h5>
 <p>
-This is a review of a script I created to add some functionality to the GoDaddy Webmail Interface. There is currently not a way to add rule-sets for mass deleting or moving emails, so I thought it would be a good exercise to apply my development abilities to making the site work like I want.  For this first phase of this project, I tackled automatic deletions. 
+This is a review of a script I created to add some functionality to the GoDaddy Webmail Interface. The application does not currently have the capability to create rules for anything, so moving and deleting files must be done manually (as of right now). I thought it would be a good exercise to direct my skills towards adding the functionality I want, starting with the ability to automatically delete emails.
 </p>
 
 <p>
 From a conceptual standpoint, development is relatively simple.<br>
-1.           Set up the Greasemonkey script.  
+1.  Set up the Greasemonkey script.  
 2.	Build/read a list of ‘bad’ subject lines.<br>
 3.	Iterate through the list and see if any of the message subject lines exist in the key list.<br>
 4.	Delete messages.<br>
@@ -222,4 +221,7 @@ I am a freelance front-end engineer with extensive full-stack development experi
 <a href="http://ushouldknow.us/"> UShouldKnow.US is a Twitter Bot built on data from GovTrack.us </a> 
 <br>
 <br><br>
+</p>
+<p>
+If you found this material helpful, please consider a small donation to the developer: 1EmdJn1Cm2ZZkxdbwPw6D4v5KDD41iD1z1
 </p>

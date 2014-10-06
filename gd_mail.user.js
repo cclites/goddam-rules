@@ -15,7 +15,7 @@
  * Greasemonkey as an Effective Tool for Front-End Development
  * 
  * Part I: Adding functionality to GoDaddy's Webmail page. (Details in README)
- * Part II: Adding ui elements for page interaction
+ * Part II: Adding ui elements for page interaction (Details in README_2)
  */
 
 /*
@@ -185,7 +185,6 @@ var builder = {
 
 var html = {
 	
-	//append this to the body
 	buildOuterContainer: function(){
 		console.log("html.buildOuterContainer");
 		return '<div class="gdm-outer"><div class="gdm-tabs"></div></div>';
